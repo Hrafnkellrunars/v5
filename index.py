@@ -9,8 +9,6 @@ with urllib.request.urlopen("http://apis.is/concerts") as url:
 def index():
     return template('index.tpl', data=gogn)
 
-run()
-
 
 @error(404)
 def error404(error):
