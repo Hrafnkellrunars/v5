@@ -1,5 +1,6 @@
 from bottle import route, error, template, static_file, run
 import urllib.request, json
+import os
 
 with urllib.request.urlopen("http://apis.is/concerts") as url:
     gogn = json.loads(url.read().decode())
@@ -15,4 +16,4 @@ run()
 def error404(error):
     return template('static/templates/error.tpl')
 
-run(host='localhost', port=8080, debug=True)
+run(host='0.0.0.0', port=os.environ.get('PORT'))
